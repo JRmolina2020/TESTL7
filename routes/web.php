@@ -40,7 +40,5 @@ Route::prefix('api')->group(function () {
     ]);
      Route::put('products/available/{id}', 'ProductController@available')->where('id', '[0-9]+');;
     Route::put('products/locked/{id}', 'ProductController@locked')->where('id', '[0-9]+');;
-    //details products
-    Route::get('product_details/{id}', 'ProductDetailController@index')->where('id', '[0-9]+');
 
 });

@@ -6,7 +6,6 @@
             class="btn bg-secondary btn-sm"
             data-toggle="modal"
             :data-target="'#model' + row.id"
-            @click="getListDetails(row.id)"
         >
             Detalle
         </button>
@@ -18,7 +17,7 @@
             aria-labelledby="modelTitleId"
             aria-hidden="true"
         >
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
                         <p>
@@ -66,19 +65,6 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div class="table-responsive">
-                            <table class="table table-bordered">
-                                <tbody>
-                                    <tr
-                                        v-for="(item, index) in details_product"
-                                        :key="`item${index}`"
-                                    >
-                                        <td>{{ item.item }}</td>
-                                        <td>{{ item.value_item }}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
                         <p>
                             <strong>Descripción detallada del producto</strong>
                         </p>
@@ -97,16 +83,6 @@ export default {
         row: {
             type: Object,
             required: true
-        }
-    },
-
-    computed: {
-        ...mapState(["details_product", "urlproducts_details"])
-    },
-
-    methods: {
-        getListDetails(id) {
-            this.$store.dispatch("Detail_product_actions", id);
         }
     }
 };

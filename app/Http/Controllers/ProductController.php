@@ -65,16 +65,7 @@ class ProductController extends Controller
          $product->description=$request->description;
          $product->unit=$request->unit;
          $product->save();
-         $details_products=$request->details_products;
-          foreach ($details_products as $ep => $det) {
-               $details_products = new ProductDetail();
-               $details_products->product_id = $product->id;
-               $details_products->item = $det['item'];
-               $details_products->value_item = $det['value_item'];
-               $details_products->save();
-            }
          return response()->json(['message' => 'El producto ha sido registrado'], 200);
-    
     }
 
     /**
@@ -101,7 +92,8 @@ class ProductController extends Controller
             'unit' => request('unit'),
 
         ])->save();
-//aqui iria el method    
+
+        
         return response()->json(['message' => 'El producto ha sido modificado'], 201);
     }
 

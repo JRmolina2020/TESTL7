@@ -25,8 +25,7 @@ export default new Vuex.Store({
         urlcategories: "api/categories",
         urlmeasures: "api/measures",
         urlbrands: "api/brands",
-        urlproducts: "api/products",
-        urlproducts_details: "api/product_details"
+        urlproducts: "api/products"
     },
     mutations: {
         Categoriemutations(state, response) {
@@ -77,17 +76,6 @@ export default new Vuex.Store({
             try {
                 let response = await axios.get(`${state.urlbrands}`);
                 commit("Brandmutations", response.data);
-                state.status = true;
-            } catch (error) {
-                console.log(error);
-            }
-        },
-        async Detail_product_actions({ commit, state }, id) {
-            try {
-                let response = await axios.get(
-                    `${state.urlproducts_details}/${id}`
-                );
-                commit("Detail_product_mutations", response.data);
                 state.status = true;
             } catch (error) {
                 console.log(error);

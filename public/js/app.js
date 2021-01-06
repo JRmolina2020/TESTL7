@@ -2754,73 +2754,16 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _utilities_modal_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../utilities/modal.vue */ "./resources/js/components/utilities/modal.vue");
-/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _mixins_add__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../mixins/add */ "./resources/js/mixins/add.js");
-/* harmony import */ var _mixins_add__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_mixins_add__WEBPACK_IMPORTED_MODULE_3__);
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
+/* harmony import */ var _utilities_modal_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utilities/modal.vue */ "./resources/js/components/utilities/modal.vue");
+/* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
+/* harmony import */ var _mixins_add__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../mixins/add */ "./resources/js/mixins/add.js");
+/* harmony import */ var _mixins_add__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_mixins_add__WEBPACK_IMPORTED_MODULE_2__);
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -3155,9 +3098,9 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     validator: "new"
   },
   name: "add",
-  mixins: [_mixins_add__WEBPACK_IMPORTED_MODULE_3___default.a],
+  mixins: [_mixins_add__WEBPACK_IMPORTED_MODULE_2___default.a],
   components: {
-    ModalResource: _utilities_modal_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    ModalResource: _utilities_modal_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
     return {
@@ -3175,11 +3118,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         tax_type: 0,
         tax: 0,
         sale_price: 0,
-        description: null,
-        details_products: [{
-          item: "",
-          value_item: ""
-        }]
+        description: null
       },
       form_details: {
         item: "",
@@ -3187,7 +3126,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       }
     };
   },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_2__["mapState"])(["categories", "measures", "brands", "urlproducts", "urlproducts_details"])),
+  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_1__["mapState"])(["categories", "measures", "brands", "urlproducts"])),
   created: function created() {
     this.getlistData();
     this.url = this.urlproducts;
@@ -3217,32 +3156,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.form.unit = row.unit;
       this.status = false;
       $("#model").modal("show");
-      this.getDatadetails(row.id);
-    },
-    getDatadetails: function getDatadetails(id) {
-      var _this = this;
-
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var response;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _context.next = 2;
-                return axios.get(_this.urlproducts_details + "/" + id);
-
-              case 2:
-                response = _context.sent;
-                _this.form.details_products = response.data;
-                console.log(_this.form.details_products);
-
-              case 5:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee);
-      }))();
     },
     clear: function clear() {
       this.form.id = null;
@@ -3257,17 +3170,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.form.description = null;
       this.status = false;
       this.$validator.reset();
-    },
-    add_items: function add_items() {
-      this.form.details_products.push({
-        item: this.form_details.item,
-        value_item: this.form_details.value_item
-      });
-    },
-    remove_items: function remove_items(index) {
-      this.form.details_products.splice(index, 1);
-      this.form.details_products = Array.from(this.form.details_products);
-      console.log(this.form);
     }
   }
 });
@@ -3284,26 +3186,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -3388,12 +3270,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     row: {
       type: Object,
       required: true
-    }
-  },
-  computed: _objectSpread({}, Object(vuex__WEBPACK_IMPORTED_MODULE_0__["mapState"])(["details_product", "urlproducts_details"])),
-  methods: {
-    getListDetails: function getListDetails(id) {
-      this.$store.dispatch("Detail_product_actions", id);
     }
   }
 });
@@ -58837,122 +58713,6 @@ var render = function() {
                   )
                 ]),
                 _vm._v(" "),
-                _c("div", { staticClass: "row" }, [
-                  _c("div", { staticClass: "col-lg-6" }, [
-                    _c(
-                      "button",
-                      {
-                        staticClass: "btn btn-primary",
-                        attrs: { type: "button" },
-                        on: {
-                          click: function($event) {
-                            return _vm.add_items()
-                          }
-                        }
-                      },
-                      [
-                        _vm._v(
-                          "\n                            Añadir restricciones\n                        "
-                        )
-                      ]
-                    )
-                  ])
-                ]),
-                _vm._v(" "),
-                _vm._l(_vm.form.details_products, function(items, index) {
-                  return _c("div", { key: index, staticClass: "row" }, [
-                    _c("div", { staticClass: "col-lg-3" }, [
-                      _c("div", { staticClass: "form-group" }, [
-                        _c("label", { attrs: { for: "" } }, [_vm._v("Item")]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value: _vm.form.details_products[index].item,
-                              expression: "form.details_products[index].item"
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: { type: "text" },
-                          domProps: {
-                            value: _vm.form.details_products[index].item
-                          },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(
-                                _vm.form.details_products[index],
-                                "item",
-                                $event.target.value
-                              )
-                            }
-                          }
-                        })
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-5" }, [
-                      _c("div", { staticClass: "form-group" }, [
-                        _c("label", { attrs: { for: "" } }, [_vm._v("Valor")]),
-                        _vm._v(" "),
-                        _c("input", {
-                          directives: [
-                            {
-                              name: "model",
-                              rawName: "v-model",
-                              value:
-                                _vm.form.details_products[index].value_item,
-                              expression:
-                                "\n                                    form.details_products[index].value_item\n                                "
-                            }
-                          ],
-                          staticClass: "form-control",
-                          attrs: { type: "text" },
-                          domProps: {
-                            value: _vm.form.details_products[index].value_item
-                          },
-                          on: {
-                            input: function($event) {
-                              if ($event.target.composing) {
-                                return
-                              }
-                              _vm.$set(
-                                _vm.form.details_products[index],
-                                "value_item",
-                                $event.target.value
-                              )
-                            }
-                          }
-                        })
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "col-lg-2" }, [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "btn btn-danger",
-                          attrs: { type: "button" },
-                          on: {
-                            click: function($event) {
-                              return _vm.remove_items(index)
-                            }
-                          }
-                        },
-                        [
-                          _vm._v(
-                            "\n                            x\n                        "
-                          )
-                        ]
-                      )
-                    ])
-                  ])
-                }),
-                _vm._v(" "),
                 _c("div", { staticClass: "form-group" }, [
                   _c("label", { attrs: { for: "" } }, [_vm._v("Descripción")]),
                   _vm._v(" "),
@@ -59018,8 +58778,7 @@ var render = function() {
                     })
                   ]
                 )
-              ],
-              2
+              ]
             )
           ])
         ]
@@ -59059,11 +58818,6 @@ var render = function() {
           type: "button",
           "data-toggle": "modal",
           "data-target": "#model" + _vm.row.id
-        },
-        on: {
-          click: function($event) {
-            return _vm.getListDetails(_vm.row.id)
-          }
         }
       },
       [_vm._v("\n        Detalle\n    ")]
@@ -59084,7 +58838,7 @@ var render = function() {
       [
         _c(
           "div",
-          { staticClass: "modal-dialog", attrs: { role: "document" } },
+          { staticClass: "modal-dialog modal-lg", attrs: { role: "document" } },
           [
             _c("div", { staticClass: "modal-content" }, [
               _c("div", { staticClass: "modal-body" }, [
@@ -59143,22 +58897,6 @@ var render = function() {
                         _c("td", [_vm._v(_vm._s(_vm.row.name_brands))])
                       ])
                     ])
-                  ])
-                ]),
-                _vm._v(" "),
-                _c("div", { staticClass: "table-responsive" }, [
-                  _c("table", { staticClass: "table table-bordered" }, [
-                    _c(
-                      "tbody",
-                      _vm._l(_vm.details_product, function(item, index) {
-                        return _c("tr", { key: "item" + index }, [
-                          _c("td", [_vm._v(_vm._s(item.item))]),
-                          _vm._v(" "),
-                          _c("td", [_vm._v(_vm._s(item.value_item))])
-                        ])
-                      }),
-                      0
-                    )
                   ])
                 ]),
                 _vm._v(" "),
@@ -74988,8 +74726,7 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
     urlcategories: "api/categories",
     urlmeasures: "api/measures",
     urlbrands: "api/brands",
-    urlproducts: "api/products",
-    urlproducts_details: "api/product_details"
+    urlproducts: "api/products"
   },
   mutations: {
     Categoriemutations: function Categoriemutations(state, response) {
@@ -75135,38 +74872,6 @@ vue__WEBPACK_IMPORTED_MODULE_1___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_2__
             }
           }
         }, _callee4, null, [[1, 9]]);
-      }))();
-    },
-    Detail_product_actions: function Detail_product_actions(_ref5, id) {
-      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
-        var commit, state, response;
-        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
-          while (1) {
-            switch (_context5.prev = _context5.next) {
-              case 0:
-                commit = _ref5.commit, state = _ref5.state;
-                _context5.prev = 1;
-                _context5.next = 4;
-                return axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("".concat(state.urlproducts_details, "/").concat(id));
-
-              case 4:
-                response = _context5.sent;
-                commit("Detail_product_mutations", response.data);
-                state.status = true;
-                _context5.next = 12;
-                break;
-
-              case 9:
-                _context5.prev = 9;
-                _context5.t0 = _context5["catch"](1);
-                console.log(_context5.t0);
-
-              case 12:
-              case "end":
-                return _context5.stop();
-            }
-          }
-        }, _callee5, null, [[1, 9]]);
       }))();
     }
   }

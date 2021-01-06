@@ -282,55 +282,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <button
-                                type="button"
-                                @click="add_items()"
-                                class="btn btn-primary"
-                            >
-                                Añadir restricciones
-                            </button>
-                        </div>
-                    </div>
-
-                    <div
-                        class="row"
-                        v-for="(items, index) in form.details_products"
-                        :key="index"
-                    >
-                        <div class="col-lg-3">
-                            <div class="form-group">
-                                <label for="">Item</label>
-                                <input
-                                    type="text"
-                                    v-model="form.details_products[index].item"
-                                    class="form-control"
-                                />
-                            </div>
-                        </div>
-                        <div class="col-lg-5">
-                            <div class="form-group">
-                                <label for="">Valor</label>
-                                <input
-                                    type="text"
-                                    v-model="
-                                        form.details_products[index].value_item
-                                    "
-                                    class="form-control"
-                                />
-                            </div>
-                        </div>
-                        <div class="col-lg-2">
-                            <button
-                                type="button"
-                                @click="remove_items(index)"
-                                class="btn btn-danger"
-                            >
-                                x
-                            </button>
-                        </div>
-                    </div>
                     <div class="form-group">
                         <label for>Descripción</label>
                         <textarea
@@ -402,8 +353,7 @@ export default {
                 tax_type: 0,
                 tax: 0,
                 sale_price: 0,
-                description: null,
-                details_products: [{ item: "", value_item: "" }]
+                description: null
             },
             form_details: {
                 item: "",
@@ -412,13 +362,7 @@ export default {
         };
     },
     computed: {
-        ...mapState([
-            "categories",
-            "measures",
-            "brands",
-            "urlproducts",
-            "urlproducts_details"
-        ])
+        ...mapState(["categories", "measures", "brands", "urlproducts"])
     },
     created() {
         this.getlistData();
@@ -451,12 +395,6 @@ export default {
             this.form.unit = row.unit;
             this.status = false;
             $("#model").modal("show");
-            this.getDatadetails(row.id);
-        },
-        async getDatadetails(id) {
-            let response = await axios.get(this.urlproducts_details + "/" + id);
-            this.form.details_products = response.data;
-            console.log(this.form.details_products);
         },
         clear() {
             this.form.id = null;
@@ -471,17 +409,6 @@ export default {
             this.form.description = null;
             this.status = false;
             this.$validator.reset();
-        },
-        add_items() {
-            this.form.details_products.push({
-                item: this.form_details.item,
-                value_item: this.form_details.value_item
-            });
-        },
-        remove_items(index) {
-            this.form.details_products.splice(index, 1);
-            this.form.details_products = Array.from(this.form.details_products);
-            console.log(this.form);
         }
     }
 };
